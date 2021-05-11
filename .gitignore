@@ -18,6 +18,30 @@
 *.zip
 *.tar.gz
 *.rar
-
+*.iml
+#/.idea
+#/.idea
+/.idea
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# IntelliJ
+/out/
+# mpeltonen/sbt
+.idea_modules/
+.gradle
+gradle
+gradlew
+gradlew.bat
+
+
+/**/build
+
+/build
+build/
+
+rebel.xml
+rebel-remote.xml
+/**/out
+out
+
