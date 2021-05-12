@@ -1,2 +1,2 @@
 # Java8Function
-Java8 Funtion Interface 
+Java8 Function Interface 

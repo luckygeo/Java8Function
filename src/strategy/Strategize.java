@@ -1,3 +1,5 @@
+package strategy;
+
 public class Strategize {
     Strategy strategy;
     String msg;
@@ -23,10 +25,13 @@ public class Strategize {
                     }
                 },
                 new Soft(), Unrelated::twice,
-                a->a
+                a -> a.substring(0, 2)
         };
+        Strategize strategize = new Strategize("hello");
+        strategize.communicate();
         for (Strategy strategy : strategies) {
-            System.out.println(strategy.approach("gao"));
+            strategize.changeStrategy(strategy);
+            strategize.communicate();
         }
     }
 }
