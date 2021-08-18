@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Spliterator;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -18,7 +19,7 @@ import java.util.stream.Stream;
  * <p>
  * Despite the fact that both have the same return types, they are quite different. Let's explain these differences by analyzing some examples of streams and optionals.
  */
-public class MapVsFlatmap {
+public class MapVsFlatMap {
     public static void main(String[] args) {
         //--1. Map and Flatmap in Optionals
         Optional<String> optional = Optional.of("test");
@@ -37,5 +38,12 @@ public class MapVsFlatmap {
         List<List<String>> lists = Arrays.asList(Arrays.asList("a", "b"), Arrays.asList("c", "d"));
         List<String> collect1 = lists.stream().flatMap(a -> a.stream()).map(String::toUpperCase).collect(Collectors.toList());
         collect1.forEach(System.out::print);
+
+        System.out.println("--------------");
+        List<String> collect2 = Stream.of(Arrays.asList("a", "b"), Arrays.asList(1, 2)).map(a -> a.toString()).collect(Collectors.toList());
+        collect2.stream().forEach(System.out::println);
+        List<String> collect3 = collect2.stream().peek(String::toUpperCase).collect(Collectors.toList());
+        collect3.forEach(System.out::println);
+        System.out.println();
     }
 }
