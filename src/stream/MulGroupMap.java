@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
  * @version: 1.0
  */
 public class MulGroupMap {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         List<Grade> bookRes = new ArrayList() {{
             add(new Grade("01", "1", "1"));
             add(new Grade("01", "5", "1"));
@@ -25,6 +25,9 @@ public class MulGroupMap {
             add(new Grade("02", "4", "1"));
         }};
         Function<Grade, String> getGrade = Grade::getGrade;
+        if (bookRes != null) {
+
+        }
         Map<String, Map<String, List<Grade>>> collect = bookRes.stream().collect(Collectors.groupingBy(Grade::getGrade, Collectors.groupingBy(Grade::getSubject)));
         Map<String, List<Grade>> collect1 = bookRes.stream().collect(Collectors.groupingBy(Grade::getGrade));
         System.out.println(collect1.toString());
